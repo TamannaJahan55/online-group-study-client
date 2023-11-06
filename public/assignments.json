@@ -1,202 +1,202 @@
 [
     {
-        "id": 1,
         "title": "Vanilla CSS Website",
         "description": "Create a website using pure CSS without any CSS framework. Build responsive and stylish web pages.",
         "marks": 100,
         "thumbnail": "https://i.ibb.co/ySsc8wW/vanilla-thumbnail.png",
         "imgURL": "https://i.ibb.co/Zhd3c9X/vanilla-css.jpg",
         "assignment_difficulty_level": "easy",
-        "due_date": "2023-12-15"
+        "due_date": "2023-12-15",
+        "user_email": "sabila@noor.com"
     },
     {
-        "id": 2,
         "title": "Bootstrap Front-End Project",
         "description": "Develop a front-end project using the Bootstrap framework. Utilize Bootstrap's components and grid system.",
-        "marks": 90,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/RBW5Pcy/bootstrap-thumbnail.png",
         "imgURL": "https://i.ibb.co/qMNf431/bootstrap.png",
         "assignment_difficulty_level": "easy",
-        "due_date": "2023-11-30"
+        "due_date": "2023-11-30",
+        "user_email": "tania@tonny.com"
     },
     {
-        "id": 3,
         "title": "Tailwind CSS Design Challenge",
         "description": "Design a user interface using Tailwind CSS, a utility-first CSS framework known for its simplicity and flexibility.",
-        "marks": 75,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/F00p1Kq/tailwind-thumbnail.jpg",
         "imgURL": "https://i.ibb.co/qYP3Nz2/tailwind.png",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-12-10"
+        "due_date": "2023-12-10",
+        "user_email": "maliha@jenny.com"
     },
     {
-        "id": 4,
         "title": "DaisyUI Component Integration",
         "description": "Integrate components from DaisyUI into a web project to enhance the design and functionality of your website.",
-        "marks": 85,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/X8c6X2r/daisyui-thumbnail.png",
         "imgURL": "https://i.ibb.co/KwHxLMv/daisyui.png",
         "assignment_difficulty_level": "easy",
-        "due_date": "2023-11-25"
+        "due_date": "2023-11-25",
+        "user_email": "israt@sithi.com"
     },
     {
-        "id": 5,
         "title": "JSON Data Parsing Exercise",
         "description": "Practice parsing and manipulating JSON data in your web application using JavaScript.",
-        "marks": 70,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/JBnR3hJ/json-thumbnail.png",
         "imgURL": "https://i.ibb.co/CmCVY22/json.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-12-05"
+        "due_date": "2023-12-05",
+        "user_email": "sabila@noor.com"
     },
     {
-        "id": 6,
         "title": "API Integration Project",
         "description": "Integrate data from a public API into your web project. Fetch and display information from the API.",
-        "marks": 80,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/85Dx3WJ/api-thumbnail.png",
         "imgURL": "https://i.ibb.co/4Y9tCT9/api.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-11-28"
+        "due_date": "2023-11-28",
+        "user_email": "papia@pinki.com"
     },
     {
-        "id": 7,
         "title": "React Front-End Development",
         "description": "Develop a dynamic front-end using the React library. Build components and manage state in your application.",
-        "marks": 90,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/L9KqGkN/react-thumbnail.png",
         "imgURL": "https://i.ibb.co/Yjq9W0K/react.jpg",
         "assignment_difficulty_level": "easy",
-        "due_date": "2023-11-20"
+        "due_date": "2023-11-20",
+        "user_email": "maliha@jenny.com"
     },
     {
-        "id": 8,
         "title": "State Management in React",
         "description": "Implement state management solutions like Redux or Mobx in a React project and showcase their benefits.",
-        "marks": 85,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/QQvbvJ9/state-thumbnail.png",
         "imgURL": "https://i.ibb.co/6YQhyMT/state-mgt.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-12-08"
+        "due_date": "2023-12-08",
+        "user_email": "tania@tonny.com"
     },
     {
-        "id": 9,
         "title": "Firebase Integration in Web App",
         "description": "Integrate Firebase services, including authentication and Firebase, into a web application for real-time data management.",
-        "marks": 80,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/fYQbSVW/firebase-thumbnail.jpg",
         "imgURL": "https://i.ibb.co/sVy8cpV/firebase.jpg",
         "assignment_difficulty_level": "hard",
-        "due_date": "2023-11-29"
+        "due_date": "2023-11-29",
+        "user_email": "sabila@noor.com"
     },
     {
-        "id": 10,
         "title": "CRUD Operations with MongoDB",
         "description": "Create a web application that performs CRUD (Create, Read, Update, Delete) operations on a MongoDB database.",
-        "marks": 75,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/3WcNs32/crud-thumbnail.png",
         "imgURL": "https://i.ibb.co/rvzhSCX/crud.png",
         "assignment_difficulty_level": "hard",
-        "due_date": "2023-12-12"
+        "due_date": "2023-12-12",
+        "user_email": "israt@sithi.com"
     },
     {
-        "id": 11,
         "title": "JWT Authentication in Web App",
         "description": "Implement JWT (JSON Web Tokens) authentication in a web application to secure endpoints and user access.",
-        "marks": 70,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/h9pfmFs/jwt-thumbnail.jpg",
         "imgURL": "https://i.ibb.co/FBCXsD7/jwt.jpg",
         "assignment_difficulty_level": "hard",
-        "due_date": "2023-11-22"
+        "due_date": "2023-11-22",
+        "user_email": "habiba@habib.com"
     },
     {
-        "id": 12,
         "title": "Python Web Development Project",
         "description": "Develop a web application using Python and a web framework such as Flask or Django. Showcase your Python web development skills.",
-        "marks": 80,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/przByvL/python-thumbnail.jpg",
         "imgURL": "https://i.ibb.co/h7s0G99/python.jpg",
         "assignment_difficulty_level": "hard",
-        "due_date": "2023-11-18"
+        "due_date": "2023-11-18",
+        "user_email": "maliha@jenny.com"
     },
     {
-        "id": 13,
         "title": "Web Navigation and Routing Project",
         "description": "Implement navigation and routing in a web application with multiple pages, dynamic routes, and user-friendly navigation menus.",
-        "marks": 85,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/przByvL/python-thumbnail.jpg",
         "imgURL": "https://i.ibb.co/VBH1V56/routes.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-12-07"
+        "due_date": "2023-12-07",
+        "user_email": "nadia@nodi.com"
     },
     {
-        "id": 14,
         "title": "Database Design and SQL Queries",
         "description": "Create a normalized database schema for a specific application and write complex SQL queries to retrieve, manipulate, and analyze data.",
-        "marks": 85,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/947Qzbq/sql-thumbnail.jpg",
         "imgURL": "https://i.ibb.co/hydNpTR/sql.jpg",
         "assignment_difficulty_level": "easy",
-        "due_date": "2023-12-05"
+        "due_date": "2023-12-05",
+        "user_email": "papia@pinki.com"
     },
     {
-        "id": 15,
         "title": "C Programming Challenge",
         "description": "Solve programming challenges and exercises using the C programming language. Demonstrate your C programming skills.",
-        "marks": 80,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/nwNxF0Y/c-programming-thumbnail.jpg",
         "imgURL": "https://i.ibb.co/ZWV6PmM/c-programming.png",
         "assignment_difficulty_level": "hard",
-        "due_date": "2023-11-21"
+        "due_date": "2023-11-21",
+        "user_email": "tania@tonny.com"
     },
     {
-        "id": 16,
         "title": "Algorithm Implementation Project",
         "description": "Implement a specific algorithm and analyze its time and space complexity in the context of a web project.",
-        "marks": 85,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/ky6NSr2/algorithm-thumbnail.png",
         "imgURL": "https://i.ibb.co/C7zQbX6/algorithm.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-12-04"
+        "due_date": "2023-12-04",
+        "user_email": "nadia@nodi.com"
     },
     {
-        "id": 17,
         "title": "Web UI/UX Design Challenge",
         "description": "Design a user-friendly and visually appealing web interface for a specific application or website. Focus on creating an excellent user experience.",
-        "marks": 90,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/yN41yq6/ui-ux-web-design.jpg",
         "imgURL": "https://i.ibb.co/BnMTPcK/ui-ux-web-design-thumbnail.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-12-15"
+        "due_date": "2023-12-15",
+        "user_email": "habiba@habib.com"
     },
     {
-        "id": 18,
         "title": "Web Design with HTML and CSS",
         "description": "Create visually appealing web designs using HTML and CSS, focusing on layout, typography, and aesthetics.",
-        "marks": 75,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/GWMKPxx/html-vs-css-thumbnail.png",
         "imgURL": "https://i.ibb.co/mGSr51W/html-and-css.jpg",
         "assignment_difficulty_level": "easy",
-        "due_date": "2023-11-29"
+        "due_date": "2023-11-29",
+        "user_email": "papia@pinki.com"
     },
     {
-        "id": 19,
         "title": "Web RESTful API Development",
         "description": "Design and build a RESTful API for a specific use case and document the API's endpoints and functionality.",
-        "marks": 80,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/cTHTG09/rest-api-thumbnail.png",
         "imgURL": "https://i.ibb.co/g34Fc4q/rest-api.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-11-15"
+        "due_date": "2023-11-15",
+        "user_email": "nadia@nodi.com"
     },
     {
-        "id": 20,
         "title": "Web Hosting and Deployment",
         "description": "Set up a web hosting environment and deploy a website or web application to a server.",
-        "marks": 75,
+        "marks": 100,
         "thumbnail": "https://i.ibb.co/FgbRNhz/web-hosting-thumbnail.png",
         "imgURL": "https://i.ibb.co/RY1fy9M/web-hosting.jpg",
         "assignment_difficulty_level": "medium",
-        "due_date": "2023-12-07"
+        "due_date": "2023-12-07",
+        "user_email": "tania@tonny.com"
     }
 ]
