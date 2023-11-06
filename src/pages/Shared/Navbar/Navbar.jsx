@@ -10,22 +10,22 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             Home
         </NavLink></li>
-        <li><NavLink to='/addProduct'
+        <li><NavLink to='/createAssignment'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             Create Assignments
         </NavLink></li>
-        <li><NavLink to='/addProduct'
+        <li><NavLink to='/assignments'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             Assignments
         </NavLink></li>
-        <li><NavLink to='/cart'
+        <li><NavLink to='/myAssignments'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             My Assignments<span></span>
         </NavLink></li>
-        <li><NavLink to='/cart'
+        <li><NavLink to='/submittedAssignments'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             Submitted Assignments
