@@ -12,7 +12,7 @@ const Assignments = () => {
         .then(data => setAssignments(data))
     }, [])
     return (
-        <div>
+        <div className="mx-10">
             <div>
                 <h3 className="text-5xl text-center font-bold text-blue-700 mb-4">Assignments</h3>
             </div>

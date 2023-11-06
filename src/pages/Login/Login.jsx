@@ -1,27 +1,58 @@
-import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import { Link,  useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 
 const Login = () => {
 
-    // const { signIn } = useAuth();
-    // const { signIn } = useContext(AuthContext);
+    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
-    //     signIn(email, password)
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user);
-    //         })
-    //         .catch(error => console.log(error));
+        console.log(email, password)
+
+        // create new user
+        signIn(email, password)
+            .then(result => {
+                console.log(result);
+                const user = { email }
+                console.log(user);
+                toast.success('User logged in successfully', {
+                    position: "top-center",
+                    theme: "colored"
+                });
+                navigate('/')
+
+            })
+            .catch(error => {
+                toast.error('Verify your email and password', error.message);
+            })
+    }
+
+    const handleSocialLogin = (media) => {
+        media()
+            .then(result => {
+                console.log(result.user)
+                toast.success('User logged in successfully', {
+                    position: "top-center",
+                    theme: "colored"
+                });
+                navigate('/')
+            })
+            .catch(error => {
+                console.error(error.message);
+            })
     }
 
     return (
-        <div className="hero min-h-screen bg-white">
+        <div className="hero min-h-screen bg-gray-300">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="w-1/2 mr-12">
                     <img src='https://i.ibb.co/7vtwcPB/login.jpg' alt="" />
@@ -49,9 +80,14 @@ const Login = () => {
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='my-4 text-center'>New to GroupLearnHub <Link className='text-blue-600 font-bold' to="/signup">Sign Up</Link> </p>
+                        <div className="w-auto m-auto text-center my-6">
+                            <button onClick={() => handleSocialLogin(googleLogin)} className="btn text-white normal-case bg-primary mr-4"><span><FaGoogle></FaGoogle></span>Google</button>
+                            <button onClick={() => handleSocialLogin(githubLogin)} className="btn text-white normal-case bg-primary ml-4"><span><FaGithub></FaGithub></span>Github</button>
+                        </div>
                     </div>
+                    <p className='my-4 text-center'>New to GroupLearnHub <Link className='text-blue-600 font-bold' to="/register">Register</Link> </p>
                 </div>
+                <ToastContainer></ToastContainer>
             </div>
         </div>
     );

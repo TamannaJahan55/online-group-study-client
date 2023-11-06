@@ -1,8 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/group study.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to='/'
@@ -10,31 +14,35 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             Home
         </NavLink></li>
-        <li><NavLink to='/createAssignment'
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
-            Create Assignments
-        </NavLink></li>
         <li><NavLink to='/assignments'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             Assignments
         </NavLink></li>
-        <li><NavLink to='/myAssignments'
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
-            My Assignments<span></span>
-        </NavLink></li>
-        <li><NavLink to='/submittedAssignments'
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
-            Submitted Assignments
-        </NavLink></li>
-        <li><NavLink to='/login'
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
-            Login
-        </NavLink></li>
+        {user?.email ? <>
+            <li><NavLink to='/createAssignment'
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
+                Create Assignments
+            </NavLink></li>
+            <li><NavLink to='/myAssignments'
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
+                My Assignments<span></span>
+            </NavLink></li>
+            <li><NavLink to='/submittedAssignments'
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
+                Submitted Assignments
+            </NavLink></li>
+
+        </>
+            : <li><NavLink to='/login'
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
+                Login
+            </NavLink></li>
+        }
         <li><NavLink to='/register'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
@@ -67,8 +75,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* {
-                        user ? <div className="flex gap-2">
+                    {
+                        user?.email ? <div className="flex gap-2">
                             <div className="flex-col">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle normal-case avatar">
                                     <div className="w-10 rounded-full">
@@ -76,18 +84,18 @@ const Navbar = () => {
                                     </div>
                                 </label>
                                 <div>
-                                    <p className="text-green-700 text-center font-semibold normal-case">{user.displayName}</p>
+                                    <p className="text-blue-600 text-center font-semibold normal-case">{user.displayName}</p>
                                 </div>
                             </div>
                             <div>
-                                <button onClick={logOut} className="btn text-white normal-case bg-orange-500">Sign Out</button>
+                                <button onClick={logOut} className="btn text-white normal-case bg-gray-300">Sign Out</button>
                             </div>
                         </div>
                             :
                             <Link to='/login'>
-                                <button className="btn text-white bg-green-700 normal-case">Login</button>
+                                <button className="btn text-white bg-primary normal-case">Login</button>
                             </Link>
-                    } */}
+                    }
 
                 </div>
             </div>
