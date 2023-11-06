@@ -18,7 +18,7 @@ const AssignmentsCard = ({assignment}) => {
                 <div className="card-actions justify-end">
                             <div className="join">
                                 <Link to=''>
-                                    <button className="btn bg-blue-500 join-item"><span><FcViewDetails></FcViewDetails></span>Details</button>
+                                    <button className="btn bg-blue-500 join-item"><span><FcViewDetails></FcViewDetails></span>View</button>
                                 </Link>
                                 <Link to=''>
                                     <button className="btn bg-lime-500 join-item"><span><GrDocumentUpdate></GrDocumentUpdate></span>Update</button>

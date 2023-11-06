@@ -18,7 +18,7 @@ const Assignments = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {
-                    assignments.map(assignment => <AssignmentsCard key={assignment._id} assignment={assignment}></AssignmentsCard>)
+                    assignments?.map(assignment => <AssignmentsCard key={assignment._id} assignment={assignment}></AssignmentsCard>)
                 }
             </div>
         </div>

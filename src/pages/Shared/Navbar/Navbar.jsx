@@ -35,6 +35,7 @@ const Navbar = () => {
                     isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
                 Submitted Assignments
             </NavLink></li>
+            <li><button onClick={logOut} className="btn-sm bg-gray-400 text-gray-700 normal-case">Log Out</button></li>
 
         </>
             : <li><NavLink to='/login'
@@ -48,6 +49,7 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-white underline font-bold" : ""}>
             Register
         </NavLink></li>
+    
     </>
 
     return (
@@ -87,14 +89,13 @@ const Navbar = () => {
                                     <p className="text-blue-600 text-center font-semibold normal-case">{user.displayName}</p>
                                 </div>
                             </div>
-                            <div>
-                                <button onClick={logOut} className="btn text-white normal-case bg-gray-300">Sign Out</button>
                             </div>
-                        </div>
                             :
-                            <Link to='/login'>
-                                <button className="btn text-white bg-primary normal-case">Login</button>
-                            </Link>
+                            <div className="avatar">
+                                <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </div>
                     }
 
                 </div>
