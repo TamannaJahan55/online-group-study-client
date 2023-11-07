@@ -5,7 +5,7 @@ import { FcViewDetails } from 'react-icons/fc';
 
 const AssignmentsCard = ({assignment}) => {
 
-    const {title, imgURL, due_date, user_email} = assignment;
+    const {_id, title, imgURL, due_date, user_email} = assignment;
     return (
         <div className="card w-96 bg-gray-300 shadow-xl">
             <figure className="px-10 pt-10">
@@ -17,7 +17,7 @@ const AssignmentsCard = ({assignment}) => {
                 <p>{user_email}</p>
                 <div className="card-actions justify-end">
                             <div className="join">
-                                <Link to=''>
+                                <Link to={`/assignmentDetails/${_id}`}>
                                     <button className="btn bg-blue-500 join-item"><span><FcViewDetails></FcViewDetails></span>View</button>
                                 </Link>
                                 <Link to=''>

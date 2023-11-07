@@ -46,7 +46,7 @@ const CreateAssignments = () => {
         <div>
             <div className="p-24 bg-blue-100">
                 <h2 className="text-5xl text-center text-primary font-extrabold mb-4">Create an Assignment</h2>
-                <div className="">
+                <div>
                     <img className="items-center mx-auto" src="https://i.ibb.co/KD090tN/online-assign-6.png" alt="" />
                 </div>
                 <div className="p-10 text-white bg-gray-400 bg-opacity-40 border border-blue-700 rounded">
