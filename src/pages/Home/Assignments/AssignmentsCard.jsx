@@ -20,7 +20,7 @@ const AssignmentsCard = ({assignment}) => {
                                 <Link to={`/assignmentDetails/${_id}`}>
                                     <button className="btn bg-blue-500 join-item"><span><FcViewDetails></FcViewDetails></span>View</button>
                                 </Link>
-                                <Link to=''>
+                                <Link to={`/updateAssignment/${_id}`}>
                                     <button className="btn bg-lime-500 join-item"><span><GrDocumentUpdate></GrDocumentUpdate></span>Update</button>
                                 </Link>
                             </div>
