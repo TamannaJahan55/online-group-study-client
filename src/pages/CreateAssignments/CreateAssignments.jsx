@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const CreateAssignments = () => {
+
+    const {user} = useContext(AuthContext);
+    console.log(user);
 
     const handleCreateAssignment = event => {
         event.preventDefault();
@@ -14,9 +19,10 @@ const CreateAssignments = () => {
         const thumbnail = form.thumbnail.value;
         const marks = form.marks.value;
         const due_date = form.due_date.value;
-        const user_email = form.user_email.value;
+        const user_email = user?.email;
+        const user_name = user?.displayName;
 
-        const newAssignment = { title, imgURL, description, assignment_difficulty_level, thumbnail, marks, due_date, user_email }
+        const newAssignment = { title, imgURL, description, assignment_difficulty_level, thumbnail, marks, due_date, user_email, user_name }
         console.log(newAssignment);
 
         // send data to the server
@@ -128,18 +134,26 @@ const CreateAssignments = () => {
                                     <span className="label-text">Due Date</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="due_date" placeholder="Due Date" className="input input-bordered w-full bg-blue-400" />
+                                    <input type="date" name="due_date" placeholder="Due Date" className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>
                         {/* user email row */}
-                        <div className="mb-8">
-                            <div className="form-control w-full">
+                        <div className="md:flex mb-8">
+                            <div className="form-control md:w-1/2">
                                 <label className="label">
                                     <span className="label-text">User Email</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="user_email" placeholder="User Email" className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="user_email" defaultValue={user?.email} className="input input-bordered w-full bg-blue-400" />
+                                </label>
+                            </div>
+                            <div className="form-control md:w-1/2">
+                                <label className="label">
+                                    <span className="label-text">User Name</span>
+                                </label>
+                                <label className="input-group">
+                                    <input type="text" name="user_name" defaultValue={user?.displayName} className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>

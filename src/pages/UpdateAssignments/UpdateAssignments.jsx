@@ -1,13 +1,28 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState} from "react";
+// import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useLoaderData } from "react-router-dom";
 
 
 const UpdateAssignments = () => {
+    
+    const {user} = useContext(AuthContext);
+    console.log(user);
+
+    // const [assignmentDetails, setAssignmentDetails] = useState([]);
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/assignments/${_id}`)
+    //     .then(res => res.json())
+    //     .then(data => setAssignmentDetails(data))
+    // }
+    //     , [_id])
 
     const assignmentDetails = useLoaderData();
     console.log(assignmentDetails);
 
-    const { _id, title, imgURL, description, thumbnail, assignment_difficulty_level, marks, due_date, user_email } = assignmentDetails;
+    const { _id, title, imgURL, description, thumbnail, assignment_difficulty_level, marks, due_date } = assignmentDetails;
 
     const handleUpdateAssignment = event => {
         event.preventDefault();
@@ -21,10 +36,12 @@ const UpdateAssignments = () => {
         const thumbnail = form.thumbnail.value;
         const marks = form.marks.value;
         const due_date = form.due_date.value;
-        const user_email = form.user_email.value;
+        const user_email = user?.email;
+        const user_name = user?.displayName;
 
-        const newAssignment = { title, imgURL, description, assignment_difficulty_level, thumbnail, marks, due_date, user_email }
+        const newAssignment = { title, imgURL, description, assignment_difficulty_level, thumbnail, marks, due_date, user_email, user_name }
         console.log(newAssignment);
+
 
         // send data to the server
         fetch(`http://localhost:5000/assignments/${_id}`, {
@@ -37,13 +54,20 @@ const UpdateAssignments = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.modifiedCount > 0) {
+                if (data.modifiedCount > 0 && user_email === user?.email) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Assignment updated successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
+                }else{
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'You are unauthorized',
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                      })
                 }
             })
     }
@@ -134,18 +158,26 @@ const UpdateAssignments = () => {
                                     <span className="label-text">Due Date</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="due_date" defaultValue={due_date} className="input input-bordered w-full bg-blue-400" />
+                                    <input type="date" name="due_date" defaultValue={due_date} className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>
                         {/* user email row */}
-                        <div className="mb-8">
-                            <div className="form-control w-full">
+                        <div className="md:flex mb-8">
+                            <div className="form-control md:w-1/2">
                                 <label className="label">
                                     <span className="label-text">User Email</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="user_email" defaultValue={user_email} className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="user_email" defaultValue={user?.email} className="input input-bordered w-full bg-blue-400" />
+                                </label>
+                            </div>
+                            <div className="form-control md:w-1/2">
+                                <label className="label">
+                                    <span className="label-text">User Name</span>
+                                </label>
+                                <label className="input-group">
+                                    <input type="text" name="user_name" defaultValue={user?.displayName} className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>

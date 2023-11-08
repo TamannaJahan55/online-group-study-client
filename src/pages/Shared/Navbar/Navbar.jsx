@@ -82,7 +82,7 @@ const Navbar = () => {
                             <div className="flex-col">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle normal-case avatar">
                                     <div className="w-10 rounded-full">
-                                        <img src={user.photoURL} alt={user.displayName} />
+                                        <img src={user.photoURL} title={user.displayName} />
                                     </div>
                                 </label>
                                 <div>

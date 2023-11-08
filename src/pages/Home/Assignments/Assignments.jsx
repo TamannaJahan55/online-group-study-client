@@ -5,6 +5,7 @@ import AssignmentsCard from "./AssignmentsCard";
 const Assignments = () => {
 
     const [assignments, setAssignments] = useState([]);
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/assignments')
@@ -18,7 +19,10 @@ const Assignments = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {
-                    assignments?.map(assignment => <AssignmentsCard key={assignment._id} assignment={assignment}></AssignmentsCard>)
+                    assignments?.map(assignment => <AssignmentsCard 
+                        key={assignment._id} 
+                        assignment={assignment}
+                        ></AssignmentsCard>)
                 }
             </div>
         </div>

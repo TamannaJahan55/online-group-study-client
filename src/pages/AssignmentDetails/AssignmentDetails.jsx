@@ -1,12 +1,82 @@
 import { useLoaderData } from "react-router-dom";
+// import { Document, Page, pdfjs } from 'react-pdf';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
+
+// pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const AssignmentDetails = () => {
+
+    const { user } = useContext(AuthContext);
+    const[modalShow, setModalShow] = useState(false);
 
     const assignmentDetails = useLoaderData();
     console.log(assignmentDetails);
 
-    const {title, imgURL, description, thumbnail, assignment_difficulty_level, marks, due_date, user_email} = assignmentDetails;
+    const { title, imgURL, description, thumbnail, assignment_difficulty_level, marks, due_date, user_email } = assignmentDetails;
 
+    useEffect(() =>{
+        setModalShow(true)
+    },[modalShow])
+    
+
+    const handleSubmitAssignment = event => {
+        event.preventDefault();
+        const form = event.target;
+        const pdf_link = form.pdf_link.value;
+        const note_text = form.note_text.value;
+        const user_email = user?.email;
+        const user_name = user?.displayName;
+        console.log(pdf_link, note_text);
+        setModalShow(false);
+        const submitAssignment = {
+            pdf_link,
+            note_text,
+            title,
+            imgURL,
+            marks,
+            due_date,
+            user_email,
+            examinee_name: user_name
+        }
+        console.log(submitAssignment);
+
+        fetch('http://localhost:5000/submittedAssignments', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(submitAssignment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            if (data.insertedId) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Assignment submitted successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            }
+        });
+
+
+
+    }
+
+    // const [file, setFile] = useState(null);
+    // const [numPages, setNumPages] = useState(null);
+    // const [pageNumber, setPageNumber] = useState(1);
+
+    // const handleFileChange = (event) => {
+    //     const selectedFile = event.target.files[0];
+    //     setFile(selectedFile);
+    //     setPageNumber(1); // Reset page number
+    // };
+
+   
     return (
         <div className="bg-gray-400">
             <div className="md:p-14 lg:p-24">
@@ -30,7 +100,47 @@ const AssignmentDetails = () => {
                                 <p className="text-lg font-medium">User: {user_email}</p>
                                 <div className="card-actions">
 
-                                    <button  className="btn text-white normal-case bg-primary">Take Assignment</button>
+                                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                                    <button disabled={user_email !== user?.email} className="btn btn-primary text-white normal-case" onClick={() => document.getElementById('my_modal_5').showModal()}>Take Assignment</button>
+                                     {
+                                        modalShow &&
+                                     
+                                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                                        <div className="modal-box bg-gray-300">
+                                            <h3 className="font-bold text-lg">Submit Assignment</h3>
+                                            <form onSubmit={handleSubmitAssignment} method="dialog" className="mx-auto w-2/3 p-4 bg-white border rounded-md">
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">PDF Link</span>
+                                                    </label>
+                                                    <input type=".pdf" name='pdf_link' placeholder="PDF Link" className="input input-bordered bg-blue-200" />
+
+                                                    {/* {file && (
+                                                        <div>
+                                                            <Document file={file} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
+                                                                <Page pageNumber={pageNumber} />
+                                                            </Document>
+                                                            <p>
+                                                                Page {pageNumber} of {numPages}
+                                                            </p>
+                                                            <button onClick={() => setPageNumber(pageNumber - 1)}>Previous Page</button>
+                                                            <button onClick={() => setPageNumber(pageNumber + 1)}>Next Page</button>
+                                                        </div>
+                                                    )} */}
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">Note Text</span>
+                                                    </label>
+                                                    <textarea name="note_text" className="textarea textarea-bordered bg-blue-200" placeholder="Note Text"></textarea>
+                                                </div>
+                                                <div className="form-control mt-6">
+                                                    <input className="btn btn-primary" type="submit" value="Submit" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </dialog>} 
 
                                 </div>
                             </div>

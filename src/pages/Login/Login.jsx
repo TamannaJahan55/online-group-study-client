@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link,  useNavigate } from "react-router-dom";
+import { Link,  useLocation,  useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
@@ -9,6 +9,8 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 const Login = () => {
 
     const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location);
     const navigate = useNavigate();
 
     const handleLogin = event => {
@@ -21,14 +23,17 @@ const Login = () => {
         // create new user
         signIn(email, password)
             .then(result => {
-                console.log(result);
-                const user = { email }
+                const user = result.user;
                 console.log(user);
+                // const user = {email}
                 toast.success('User logged in successfully', {
                     position: "top-center",
                     theme: "colored"
                 });
-                navigate('/')
+                form.reset();
+                navigate(location?.state? location?.state : '/')
+                // get access token
+                 
 
             })
             .catch(error => {
@@ -65,13 +70,13 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                <input type="text" name='email' required placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                                <input type="password" name='password' required placeholder="password" className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
