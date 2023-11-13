@@ -16,7 +16,7 @@ const MyCard = ({ card }) => {
 
                 </td>
                 <td>{title}</td>
-                <td><a href={pdf_link}>View pdf</a></td>
+                <td><a href={pdf_link}>Preview pdf</a></td>
                 <td>{examinee_name}</td>
                 <td>{user_email}</td>
                 <td>{marks}</td>

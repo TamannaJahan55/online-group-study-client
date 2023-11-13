@@ -1,0 +1,15 @@
+.pagination{
+    text-align: center;
+    margin-bottom: 40px;
+    color: blue;
+}
+
+.pagination button{
+    margin-right: 10px;
+    border-radius: 100px;
+    width: 25px;
+}
+
+.pagination .selected{
+    background-color: slateblue;
+}

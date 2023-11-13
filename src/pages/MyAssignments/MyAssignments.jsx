@@ -18,7 +18,7 @@ const MyAssignments = () => {
 
     return (
         <div className="p-10 bg-violet-200">
-            <h2 className="text-5xl text-center text-primary font-extrabold mb-4">My Assignments: {myAssignments.length}</h2>
+            <h2 className="text-5xl text-center text-primary font-extrabold mb-4">My Assignments</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full items-center mx-auto">
                     {/* head */}

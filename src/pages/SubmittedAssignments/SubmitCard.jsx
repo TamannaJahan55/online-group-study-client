@@ -32,7 +32,7 @@ const SubmitCard = ({ submit, handleDelete, handleGivingMarks, handlePending, mo
 
             </td>
             <td>{title}</td>
-            <td><a href={pdf_link}>View pdf</a></td>
+            <td><a href={pdf_link}>Preview pdf</a></td>
             <td>{examinee_name}</td>
             <td>{user_email}</td>
             <td><DatePicker className="text-center" selected={startDate} onChange={(due_date) => setStartDate(due_date)} /></td>
