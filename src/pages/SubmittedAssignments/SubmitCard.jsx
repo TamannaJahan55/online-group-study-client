@@ -20,7 +20,7 @@ const SubmitCard = ({ submit, handleDelete, handleGivingMarks, handlePending, mo
     return (
         <tr>
             <th>
-                <button onClick={() => handleDelete(_id)} className="btn bg-orange-400 btn-sm"><span><AiTwotoneDelete className="text-white"></AiTwotoneDelete></span></button>
+                <button onClick={() => handleDelete(_id)} className="btn bg-red-600 btn-sm"><span><AiTwotoneDelete className="text-white"></AiTwotoneDelete></span></button>
             </th>
             <td>
 
