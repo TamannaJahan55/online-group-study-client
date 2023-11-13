@@ -65,7 +65,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <motion.div initial={{y: -250}} animate={{y: -10}}  className="flex-col text-center">
+                    <motion.div initial={{y: -250}} animate={{y: -10}} transition={{delay: 0.2, type: 'spring', stiffness: 10}}  className="flex-col text-center">
                         <Link to='/' className="btn btn-ghost normal-case text-xl mt-3">
                             <img src={logo} alt="" />
                         </Link>
