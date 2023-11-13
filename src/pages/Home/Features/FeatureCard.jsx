@@ -6,8 +6,8 @@ const FeatureCard = ({ feature }) => {
 
     return (
         <div>
-            <div className="border-primary-content w-96 bg-slate-300">
-                <figure className="px-10 pt-10">
+            <div className="border-primary-content w-80 bg-slate-300">
+                <figure>
                     <img src={topic_img} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
