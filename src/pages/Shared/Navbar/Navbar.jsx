@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/group study.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { motion } from "framer-motion"
 
 
 const Navbar = () => {
@@ -64,12 +65,12 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <div className="flex-col text-center">
+                    <motion.div initial={{y: -250}} animate={{y: -10}}  className="flex-col text-center">
                         <Link to='/' className="btn btn-ghost normal-case text-xl mt-3">
                             <img src={logo} alt="" />
                         </Link>
                         <a className="btn btn-ghost normal-case text-xs md:text-xl lg:text-xl font-mono text-white">GroupLearnHub</a>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
