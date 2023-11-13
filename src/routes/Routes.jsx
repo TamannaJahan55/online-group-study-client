@@ -9,6 +9,8 @@ import AssignmentDetails from "../pages/AssignmentDetails/AssignmentDetails";
 import UpdateAssignments from "../pages/UpdateAssignments/UpdateAssignments";
 import SubmittedAssignments from "../pages/SubmittedAssignments/SubmittedAssignments";
 import PrivateRoute from "./PrivateRoute";
+import MyAssignments from "../pages/MyAssignments/MyAssignments";
+import UpdateSubmit from "../pages/SubmittedAssignments/UpdateSubmit";
 
 const router = createBrowserRouter([
     {
@@ -17,7 +19,8 @@ const router = createBrowserRouter([
       children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch('/features.json')
         },
         {
           path: '/assignments',
@@ -48,6 +51,15 @@ const router = createBrowserRouter([
         {
           path: '/submittedAssignments',
           element:<SubmittedAssignments></SubmittedAssignments>
+        },
+        {
+          path: '/myAssignments',
+          element: <MyAssignments></MyAssignments>
+        },
+        {
+          path: '/updateSubmit/:id',
+          element: <UpdateSubmit></UpdateSubmit>,
+          loader: ({params}) => fetch(`http://localhost:5000/submittedAssignments/${params.id}`)
         }
       ]
     },

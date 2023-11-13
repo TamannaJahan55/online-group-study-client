@@ -6,13 +6,19 @@ import Swal from "sweetalert2";
 
 const SubmittedAssignments = () => {
     const { user } = useContext(AuthContext);
+    console.log(user);
     const [submitAssignments, setSubmitAssignments] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/submittedAssignments')
             .then(res => res.json())
-            .then(data => setSubmitAssignments(data))
+            .then(data => {
+                console.log(data)
+                setSubmitAssignments(data)
+            })
     }, [])
+
+    const { _id, title, imgURL, pdf_link, note_text, marks, due_date, status, user_email, examinee_name } = submitAssignments;
 
     const handleDelete = id => {
         Swal.fire({
@@ -46,41 +52,77 @@ const SubmittedAssignments = () => {
         })
     }
 
-        return (
-            <div className="p-10 bg-gray-200">
-                <h2 className="text-5xl text-center text-primary font-extrabold mb-4">Submitted Assignments</h2>
-                <div className="overflow-x-auto">
-                    <table className="table">
-                        {/* head */}
-                        <thead>
-                            <tr className="bg-blue-600 text-white text-center">
-                                <th>Delete</th>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>PDF Link</th>
-                                <th>Examinee Name</th>
-                                <th>Email</th>
-                                <th>Date</th>
-                                <th>Assignment Marks</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-center">
-                            {
-                                submitAssignments.map(submit => <SubmitCard
-                                    key={submit._id}
-                                    submit={submit}
-                                    handleDelete={handleDelete}
-                                ></SubmitCard>)
-                            }
 
-                        </tbody>
+    // const handlePending = id => {
+
+    //     fetch(`http://localhost:5000/submittedAssignments/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify({ status: 'pending' })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             if (data.modifiedCount > 0) {
+    //                 // update state
+    //                 const remaining = submitAssignments.filter(submit => submit._id !== id);
+    //                 const updated = submitAssignments.find(submit => submit._id === id);
+    //                 updated.status = 'pending';
+    //                 const newSubmitAssignments = [updated, ...remaining];
+    //                 setSubmitAssignments(newSubmitAssignments);
+    //                 Swal.fire({
+    //                     title: 'Success!',
+    //                     text: 'Giving Marks to assignment successfully',
+    //                     icon: 'success',
+    //                     confirmButtonText: 'Cool'
+    //                 })
+
+    //             }
+    //         })
+    // }
 
 
-                    </table>
-                </div>
+    return (
+        <div className="p-10 bg-gray-200">
+            <h2 className="text-5xl text-center text-primary font-extrabold mb-4">Submitted Assignments</h2>
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr className="bg-blue-600 text-white text-center">
+                            <th>Delete</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>PDF Link</th>
+                            <th>Examinee Name</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th>Assignment Marks</th>
+                            <th>Status</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody className="text-center">
+                        {
+                            submitAssignments.map(submit => <SubmitCard
+                                key={submit._id}
+                                submit={submit}
+                                handleDelete={handleDelete}
+                                // handleGivingMarks={handleGivingMarks}
+                                // modalShow={modalShow}
+                                // handlePending={handlePending}
+                            ></SubmitCard>)
+                        }
+
+                    </tbody>
+
+
+                </table>
             </div>
-        );
-    };
+        </div>
+    );
+};
 
-    export default SubmittedAssignments;
+export default SubmittedAssignments;

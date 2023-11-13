@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "topic_name": "Python Web Development Project",
+      "topic_img": "https://i.ibb.co/h7s0G99/python.jpg"
+    },
+    {
+      "id": 2,
+      "topic_name": "Algorithm Implementation Project",
+      "topic_img": "https://i.ibb.co/C7zQbX6/algorithm.jpg"
+    },
+    {
+      "id": 3,
+      "topic_name": "JSON Data Parsing Exercise",
+      "topic_img": "https://i.ibb.co/CmCVY22/json.jpg"
+    },
+    {
+      "id": 4,
+      "topic_name": "API Integration Project",
+      "topic_img": "https://i.ibb.co/4Y9tCT9/api.jpg"
+    },
+    {
+      "id": 5,
+      "topic_name": "Firebase Integration in Web App",
+      "topic_img": "https://i.ibb.co/sVy8cpV/firebase.jpg"
+    },
+    {
+      "id": 6,
+      "topic_name": "CRUD Operations with MongoDB",
+      "topic_img": "https://i.ibb.co/rvzhSCX/crud.png"
+    }
+  ]
+  

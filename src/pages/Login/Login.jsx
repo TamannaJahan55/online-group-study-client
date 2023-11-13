@@ -62,7 +62,7 @@ const Login = () => {
                 <div className="w-1/2 mr-12">
                     <img src='https://i.ibb.co/7vtwcPB/login.jpg' alt="" />
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-blue-300">
                     <div className="card-body">
                         <h1 className="text-3xl text-center text-blue-600 font-bold">Login</h1>
                         <form onSubmit={handleLogin}>
