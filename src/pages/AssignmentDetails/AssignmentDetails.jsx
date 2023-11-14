@@ -41,7 +41,7 @@ const AssignmentDetails = () => {
         }
         console.log(submitAssignment);
 
-        fetch('http://localhost:5000/submittedAssignments', {
+        fetch('https://online-group-study-server-swart.vercel.app/submittedAssignments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateAssignments = () => {
 
@@ -29,8 +31,20 @@ const CreateAssignments = () => {
         const newAssignment = { title, imgURL, description, assignment_difficulty_level, thumbnail, marks, due_date, user_email, user_name }
         console.log(newAssignment);
 
+        // validation
+        if(title.trim().length < 10){
+            toast.error('Title should be at least 10 characters')
+            return
+        }else if (!/[A-Z]/.test(title)) {
+            toast.error('Title should have at least one upper case character')
+            return
+        }else if(marks !== 100 ){
+            toast.error('Assignment Marks should be calculated by 100')
+            return
+        }
+
         // send data to the server
-        fetch('http://localhost:5000/assignments', {
+        fetch('https://online-group-study-server-swart.vercel.app/assignments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -40,11 +54,18 @@ const CreateAssignments = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.insertedId) {
+                if (data.insertedId ) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Assignment created successfully',
                         icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Fill up required fields',
+                        icon: 'error',
                         confirmButtonText: 'Cool'
                     })
                 }
@@ -68,7 +89,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">Title</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="title" placeholder="Title" className="input input-bordered w-full text-white bg-blue-400" />
+                                    <input type="text" name="title" required placeholder="Title" className="input input-bordered w-full text-white bg-blue-400" />
                                 </label>
                             </div>
                         </div>
@@ -79,7 +100,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">Image URL</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="imgURL" placeholder="Image URL" className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="imgURL" required placeholder="Image URL" className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>
@@ -90,7 +111,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">Description</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="description" placeholder="Description" className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="description" required placeholder="Description" className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>
@@ -102,7 +123,7 @@ const CreateAssignments = () => {
                                 </label>
                                 <div className="form-control">
                                     <div className="input-group">
-                                        <select name="assignment_difficulty_level" className="select select-bordered w-full bg-blue-400">
+                                        <select name="assignment_difficulty_level" required className="select select-bordered w-full bg-blue-400">
                                             <option disabled selected>Pick Level</option>
                                             <option defaultValue="easy">easy</option>
                                             <option defaultValue="medium">medium</option>
@@ -119,7 +140,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">Thumbnail URL</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="thumbnail" placeholder="Thumbnail URL" className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="thumbnail" required placeholder="Thumbnail URL" className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>
@@ -130,7 +151,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">Marks</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="marks" placeholder="Marks" className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="marks" required placeholder="Marks" className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                             <div className="form-control md:w-1/2 ml-4">
@@ -138,7 +159,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">Due Date</span>
                                 </label>
                                 <label className="input-group">
-                                    <DatePicker type="date" name="due_date" placeholder="Due Date" className="text-center input input-bordered w-full bg-blue-400" selected={startDate} onChange={(due_date) => setStartDate(due_date)} />
+                                    <DatePicker type="date" name="due_date" required placeholder="Due Date" className="text-center input input-bordered w-full bg-blue-400" selected={startDate} onChange={(due_date) => setStartDate(due_date)} />
                                 </label>
                             </div>
                         </div>
@@ -149,7 +170,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">User Email</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="user_email" defaultValue={user?.email} className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="user_email" required defaultValue={user?.email} className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                             <div className="form-control md:w-1/2">
@@ -157,7 +178,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">User Name</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="user_name" defaultValue={user?.displayName} className="input input-bordered w-full bg-blue-400" />
+                                    <input type="text" name="user_name" required defaultValue={user?.displayName} className="input input-bordered w-full bg-blue-400" />
                                 </label>
                             </div>
                         </div>

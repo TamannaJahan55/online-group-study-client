@@ -9,7 +9,7 @@ const MyAssignments = () => {
     const [myAssignments, setMyAssignments] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/submittedAssignment/${user?.email}`)
+        fetch(`https://online-group-study-server-swart.vercel.app/submittedAssignment/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

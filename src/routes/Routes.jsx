@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         {
           path: '/assignments',
           element: <Assignments></Assignments>,
-          loader: () => fetch('http://localhost:5000/assignmentsCount')
+          loader: () => fetch('https://online-group-study-server-swart.vercel.app/assignmentsCount')
         },
         {
           path: '/login',
@@ -42,12 +42,12 @@ const router = createBrowserRouter([
         {
           path: '/assignmentDetails/:id',
           element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/assignments/${params?.id}`)
+          loader: ({params}) => fetch(`https://online-group-study-server-swart.vercel.app/assignments/${params?.id}`)
         },
         {
           path: '/updateAssignment/:id',
           element: <PrivateRoute><UpdateAssignments></UpdateAssignments></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+          loader: ({params}) => fetch(`https://online-group-study-server-swart.vercel.app/assignments/${params.id}`)
         },
         {
           path: '/submittedAssignments',
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         {
           path: '/updateSubmit/:id',
           element: <UpdateSubmit></UpdateSubmit>,
-          loader: ({params}) => fetch(`http://localhost:5000/submittedAssignments/${params.id}`)
+          loader: ({params}) => fetch(`https://online-group-study-server-swart.vercel.app/submittedAssignments/${params.id}`)
         }
       ]
     },

@@ -10,7 +10,7 @@ const SubmittedAssignments = () => {
     const [submitAssignments, setSubmitAssignments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/submittedAssignments')
+        fetch('https://online-group-study-server-swart.vercel.app/submittedAssignments')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -31,7 +31,7 @@ const SubmittedAssignments = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/submittedAssignments/${id}`, {
+                fetch(`https://online-group-study-server-swart.vercel.app/submittedAssignments/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -37,7 +37,7 @@ const UpdateSubmit = () => {
         }
         console.log(completedAssignment);
 
-        fetch(`http://localhost:5000/submittedAssignments/${id}`, {
+        fetch(`https://online-group-study-server-swart.vercel.app/submittedAssignments/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

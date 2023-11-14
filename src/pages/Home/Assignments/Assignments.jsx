@@ -16,7 +16,7 @@ const Assignments = () => {
     const pages = [...Array(numberOfPages).keys()];
 
     useEffect(() => {
-        fetch(`http://localhost:5000/assignments?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`https://online-group-study-server-swart.vercel.app/assignments?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setAssignments(data))
     }, [currentPage, itemsPerPage]);
@@ -90,7 +90,7 @@ const Assignments = () => {
                                 >{page}</button>)
                         }
                         <button onClick={handleNextPage}>Next</button>
-                        <select className="mr-5" value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+                        <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
                             <option value="4">4</option>
                             <option value="6">6</option>
                             <option value="9">9</option>
