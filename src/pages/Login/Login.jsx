@@ -31,10 +31,7 @@ const Login = () => {
                     theme: "colored"
                 });
                 form.reset();
-                navigate(location?.state? location?.state : '/')
-                // get access token
-                 
-
+                navigate(location?.state? location?.state : '/');
             })
             .catch(error => {
                 toast.error('Verify your email and password', error.message);

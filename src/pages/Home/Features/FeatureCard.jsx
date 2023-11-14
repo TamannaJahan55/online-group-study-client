@@ -8,7 +8,6 @@ const FeatureCard = ({ feature }) => {
         <div>
             <motion.div animate={{
                 scale: [1, 2, 2, 1, 1],
-                rotate: [0, 0, 180, 180, 0],
                 borderRadius: ["0%", "0%", "50%", "50%", "0%"]
             }} 
             transition={{

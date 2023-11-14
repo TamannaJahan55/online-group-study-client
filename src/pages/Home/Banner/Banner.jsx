@@ -12,8 +12,8 @@ const Banner = () => {
                             <motion.img animate={{ scale: 1, rotate: 355 }} src="https://i.ibb.co/9hmNr7V/online-group.jpg" className="max-w-sm mx-auto rounded-lg shadow-2xl" />
                         </div>
                         <div className="max-w-md">
-                            <motion.h1 animate={{ fontSize: 50, color: '#ff2994', x: -20, y: -20 }} className="mb-5 text-5xl text-blue-700 font-extrabold">GroupLearnHub</motion.h1>
-                            <p className="mb-3 text-3xl text-purple-700 font-bold">Online Group Study</p>
+                            <motion.h1 animate={{ fontSize: 50, color: '#ff2994', x: -20, y: -30 }} className="mb-5 text-5xl text-blue-700 font-extrabold">GroupLearnHub</motion.h1>
+                            <motion.p initial={{y: -250}} animate={{y: -10}} transition={{delay: 0.2, type: 'spring', stiffness: 10}} className="mb-3 text-3xl text-purple-700 font-bold">Online Group Study</motion.p>
                             <p className="mb-3 mt-3 text-xl text-blue-700 font-medium">Join a Group of Learners, Where Knowledge Knows No Bounds</p>
 
                         </div>

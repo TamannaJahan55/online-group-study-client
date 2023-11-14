@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import AssignmentsCard from "./AssignmentsCard";
 import { useLoaderData } from "react-router-dom";
 import './AssignmentPage.css'
-import {motion} from 'framer-motion';
 
 
 const Assignments = () => {
