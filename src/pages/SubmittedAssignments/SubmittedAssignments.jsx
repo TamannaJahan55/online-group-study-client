@@ -18,7 +18,6 @@ const SubmittedAssignments = () => {
             })
     }, [])
 
-    const { _id, title, imgURL, pdf_link, note_text, marks, due_date, status, user_email, examinee_name } = submitAssignments;
 
     const handleDelete = id => {
         Swal.fire({
@@ -53,37 +52,6 @@ const SubmittedAssignments = () => {
     }
 
 
-    // const handlePending = id => {
-
-    //     fetch(`http://localhost:5000/submittedAssignments/${id}`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ status: 'pending' })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.modifiedCount > 0) {
-    //                 // update state
-    //                 const remaining = submitAssignments.filter(submit => submit._id !== id);
-    //                 const updated = submitAssignments.find(submit => submit._id === id);
-    //                 updated.status = 'pending';
-    //                 const newSubmitAssignments = [updated, ...remaining];
-    //                 setSubmitAssignments(newSubmitAssignments);
-    //                 Swal.fire({
-    //                     title: 'Success!',
-    //                     text: 'Giving Marks to assignment successfully',
-    //                     icon: 'success',
-    //                     confirmButtonText: 'Cool'
-    //                 })
-
-    //             }
-    //         })
-    // }
-
-
     return (
         <div className="p-10 bg-gray-200">
             <h2 className="text-5xl text-center text-primary font-extrabold mb-4">Submitted Assignments</h2>
@@ -110,9 +78,6 @@ const SubmittedAssignments = () => {
                                 key={submit._id}
                                 submit={submit}
                                 handleDelete={handleDelete}
-                                // handleGivingMarks={handleGivingMarks}
-                                // modalShow={modalShow}
-                                // handlePending={handlePending}
                             ></SubmitCard>)
                         }
 

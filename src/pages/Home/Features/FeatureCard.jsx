@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 const FeatureCard = ({ feature }) => {
 
-    const { id, topic_name, topic_img } = feature;
+    const { topic_name, topic_img } = feature;
 
     return (
         <div>

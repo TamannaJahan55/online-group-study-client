@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const SubmitCard = ({ submit, handleDelete}) => {
 
     const { user } = useContext(AuthContext);
+    console.log(user);
 
 
     const { _id, title, imgURL, pdf_link, note_text, marks, due_date, status, user_email, examinee_name } = submit;
