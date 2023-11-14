@@ -1,23 +1,17 @@
-import { useContext, useEffect, useState} from "react";
-// import { useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const UpdateAssignments = () => {
-    
-    const {user} = useContext(AuthContext);
+
+    const { user } = useContext(AuthContext);
     console.log(user);
 
-    // const [assignmentDetails, setAssignmentDetails] = useState([]);
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/assignments/${_id}`)
-    //     .then(res => res.json())
-    //     .then(data => setAssignmentDetails(data))
-    // }
-    //     , [_id])
+    const [startDate, setStartDate] = useState(new Date());
 
     const assignmentDetails = useLoaderData();
     console.log(assignmentDetails);
@@ -61,13 +55,13 @@ const UpdateAssignments = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-                }else{
+                } else {
                     Swal.fire({
                         title: 'Error!',
                         text: 'You are unauthorized',
                         icon: 'error',
                         confirmButtonText: 'Cool'
-                      })
+                    })
                 }
             })
     }
@@ -158,7 +152,7 @@ const UpdateAssignments = () => {
                                     <span className="label-text">Due Date</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="date" name="due_date" defaultValue={due_date} className="input input-bordered w-full bg-blue-400" />
+                                    <DatePicker type="date" name="due_date" defaultValue={due_date} className="text-center input input-bordered w-full bg-blue-400" selected={startDate} onChange={(due_date) => setStartDate(due_date)} />
                                 </label>
                             </div>
                         </div>

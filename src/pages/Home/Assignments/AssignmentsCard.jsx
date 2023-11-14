@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { GrDocumentUpdate } from 'react-icons/gr';
 import { FcViewDetails } from 'react-icons/fc';
-import { AiTwotoneDelete} from 'react-icons/ai';
 import { useContext} from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -29,7 +28,6 @@ const AssignmentsCard = ({ assignment }) => {
                         <Link to={`/updateAssignment/${_id}`}>
                             <button disabled={user_email!==user?.email} className="btn bg-lime-500 join-item"><span><GrDocumentUpdate></GrDocumentUpdate></span>Update</button>
                         </Link>
-                        {/* <button className="btn bg-orange-500 join-item"><span><AiTwotoneDelete></AiTwotoneDelete></span>Delete</button> */}
                     </div>
                 </div>
             </div>

@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CreateAssignments = () => {
 
     const {user} = useContext(AuthContext);
     console.log(user);
+
+    const [startDate, setStartDate] = useState(new Date());
 
     const handleCreateAssignment = event => {
         event.preventDefault();
@@ -134,7 +138,7 @@ const CreateAssignments = () => {
                                     <span className="label-text">Due Date</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="date" name="due_date" placeholder="Due Date" className="input input-bordered w-full bg-blue-400" />
+                                    <DatePicker type="date" name="due_date" placeholder="Due Date" className="text-center input input-bordered w-full bg-blue-400" selected={startDate} onChange={(due_date) => setStartDate(due_date)} />
                                 </label>
                             </div>
                         </div>

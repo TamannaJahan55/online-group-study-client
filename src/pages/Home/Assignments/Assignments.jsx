@@ -90,7 +90,7 @@ const Assignments = () => {
                                 >{page}</button>)
                         }
                         <button onClick={handleNextPage}>Next</button>
-                        <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+                        <select className="mr-5" value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
                             <option value="4">4</option>
                             <option value="6">6</option>
                             <option value="9">9</option>

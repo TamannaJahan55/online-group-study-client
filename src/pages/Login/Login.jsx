@@ -3,12 +3,12 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link,  useLocation,  useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 
 
 const Login = () => {
 
-    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const { signIn, googleLogin } = useContext(AuthContext);
     const location = useLocation();
     console.log(location);
     const navigate = useNavigate();
@@ -83,8 +83,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className="w-auto m-auto text-center my-6">
-                            <button onClick={() => handleSocialLogin(googleLogin)} className="btn text-white normal-case bg-primary mr-4"><span><FaGoogle></FaGoogle></span>Google</button>
-                            <button onClick={() => handleSocialLogin(githubLogin)} className="btn text-white normal-case bg-primary ml-4"><span><FaGithub></FaGithub></span>Github</button>
+                            <button onClick={() => handleSocialLogin(googleLogin)} className="btn btn-lg text-white normal-case bg-primary mr-4"><span><FaGoogle></FaGoogle></span>Google</button>
                         </div>
                     </div>
                     <p className='my-4 text-center'>New to GroupLearnHub <Link className='text-blue-600 font-bold' to="/register">Register</Link> </p>

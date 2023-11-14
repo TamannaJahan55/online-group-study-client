@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Document, Page, pdfjs } from 'react-pdf';
 import Swal from "sweetalert2";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 
 const UpdateSubmit = () => {
@@ -54,6 +57,17 @@ const UpdateSubmit = () => {
                 }
             });
     }
+
+    const [file, setFile] = useState(null);
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    const handleFileChange = (event) => {
+        const selectedFile = event.target.files[0];
+        setFile(selectedFile);
+        setPageNumber(1); // Reset page number
+    };
+
     return (
         <div>
             <form onSubmit={(e) => handleGivingMarks(e, _id)} method="dialog" className="mx-auto w-2/3 p-4 bg-white border rounded-md">
@@ -62,8 +76,20 @@ const UpdateSubmit = () => {
                     <label className="label">
                         <span className="label-text">PDF Link</span>
                     </label>
-                    <input type="text" name='pdf_link' defaultValue={pdf_link} className="input input-bordered bg-blue-200" />
+                    <input type="file" name='pdf_link' accept=".pdf" onChange={handleFileChange} placeholder={pdf_link} className="input input-bordered bg-blue-200" />
 
+                    {file && (
+                        <div>
+                            <Document file={file} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
+                                <Page pageNumber={pageNumber} />
+                            </Document>
+                            <p>
+                                Page {pageNumber} of {numPages}
+                            </p>
+                            <button onClick={() => setPageNumber(pageNumber - 1)}>Previous Page</button>
+                            <button onClick={() => setPageNumber(pageNumber + 1)}>Next Page</button>
+                        </div>
+                    )}
                 </div>
                 <div className="form-control">
                     <label className="label">
