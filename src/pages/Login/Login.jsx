@@ -46,7 +46,7 @@ const Login = () => {
                     position: "top-center",
                     theme: "colored"
                 });
-                navigate('/')
+                navigate(location?.state? location?.state : '/')
             })
             .catch(error => {
                 console.error(error.message);
