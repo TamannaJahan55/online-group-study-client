@@ -10,13 +10,12 @@ const SubmitCard = ({ submit, handleDelete}) => {
 
 
     const { _id, title, imgURL, pdf_link, note_text, marks, due_date, status, user_email, examinee_name } = submit;
-    console.log(_id)
 
 
     return (
         <tr>
             <th>
-                <button disabled={user_email !== user?.email} onClick={() => handleDelete(_id)} className="btn bg-red-600 btn-sm"><span><AiTwotoneDelete className="text-white"></AiTwotoneDelete></span></button>
+                <button  onClick={() => handleDelete(_id)} className="btn bg-red-600 btn-sm"><span><AiTwotoneDelete className="text-white"></AiTwotoneDelete></span></button>
             </th>
             <td>
 

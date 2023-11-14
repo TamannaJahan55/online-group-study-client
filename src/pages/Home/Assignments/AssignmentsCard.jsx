@@ -11,6 +11,7 @@ const AssignmentsCard = ({ assignment }) => {
     console.log(user);
 
     const { _id, title, imgURL, assignment_difficulty_level, user_email } = assignment;
+
     return (
         <div className="card w-80 h-96 bg-gray-300 shadow-xl shadow-purple-300 rounded-none">
             <figure className="px-10 pt-10">
@@ -25,9 +26,10 @@ const AssignmentsCard = ({ assignment }) => {
                         <Link to={`/assignmentDetails/${_id}`}>
                             <button className="btn bg-blue-500 join-item"><span><FcViewDetails></FcViewDetails></span>View</button>
                         </Link>
-                        <Link to={`/updateAssignment/${_id}`}>
-                            <button disabled={user_email!==user?.email} className="btn bg-lime-500 join-item"><span><GrDocumentUpdate></GrDocumentUpdate></span>Update</button>
-                        </Link>
+                       
+                       <Link  to={`/updateAssignment/${_id}`}>
+                            <button className="btn bg-lime-500 join-item"><span><GrDocumentUpdate></GrDocumentUpdate></span>Update</button>
+                        </Link> 
                     </div>
                 </div>
             </div>

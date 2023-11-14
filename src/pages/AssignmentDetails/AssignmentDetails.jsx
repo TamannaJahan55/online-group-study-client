@@ -11,7 +11,7 @@ const AssignmentDetails = () => {
     const assignmentDetails = useLoaderData();
     console.log(assignmentDetails);
 
-    const { title, imgURL, description, thumbnail, assignment_difficulty_level, marks, due_date, user_email } = assignmentDetails;
+    const { title, imgURL, description, thumbnail, assignment_difficulty_level, marks, due_date, user_email, user_name } = assignmentDetails;
 
     useEffect(() => {
         setModalShow(true)
@@ -24,9 +24,6 @@ const AssignmentDetails = () => {
         const pdf_link = form.pdf_link.value;
         const note_text = form.note_text.value;
         const status = form.status.value;
-        const user_email = user?.email;
-        const user_name = user?.displayName;
-        console.log(pdf_link, note_text);
         setModalShow(false);
         const submitAssignment = {
             pdf_link,
@@ -41,6 +38,15 @@ const AssignmentDetails = () => {
         }
         console.log(submitAssignment);
 
+        if(user_email !== user?.email){
+            return  Swal.fire({
+                title: 'Error!',
+                text: 'You are unauthorized',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        }
+
         fetch('https://online-group-study-server-swart.vercel.app/submittedAssignments', {
             method: 'POST',
             headers: {
@@ -51,7 +57,7 @@ const AssignmentDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.insertedId) {
+                if (data.insertedId && user_email === user?.email) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Assignment submitted successfully',
@@ -90,7 +96,7 @@ const AssignmentDetails = () => {
                                 <div className="card-actions">
 
                                     {/* Open the modal using document.getElementById('ID').showModal() method */}
-                                    <button disabled={user_email !== user?.email} className="btn btn-primary text-white normal-case" onClick={() => document.getElementById('my_modal_5').showModal()}>Take Assignment</button>
+                                    <button  className="btn btn-primary text-white normal-case" onClick={() => document.getElementById('my_modal_5').showModal()}>Take Assignment</button>
                                     {
                                         modalShow &&
 

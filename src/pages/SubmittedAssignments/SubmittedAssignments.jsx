@@ -18,6 +18,8 @@ const SubmittedAssignments = () => {
             })
     }, [])
 
+   const { _id, title, imgURL, pdf_link, note_text, marks, due_date, status, user_email, examinee_name } = submitAssignments;
+
 
     const handleDelete = id => {
         Swal.fire({
@@ -37,14 +39,21 @@ const SubmittedAssignments = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
-                        if (data.deletedCount > 0) {
+                        if (data.deletedCount > 0 && user_email === user?.email) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your cart product has been deleted.',
+                                'Your submitted assignment has been deleted successfully.',
                                 'success'
                             )
                             const remaining = submitAssignments.filter(submit => submit._id !== id);
                             setSubmitAssignments(remaining);
+                        }else {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'You are unauthorized',
+                                icon: 'error',
+                                confirmButtonText: 'Cool'
+                            })
                         }
                     })
             }
